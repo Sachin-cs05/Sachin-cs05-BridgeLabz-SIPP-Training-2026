@@ -1,0 +1,17 @@
+
+mysql> SELECT d.Country,
+    ->        d.Deaths,
+    ->        v.Vaccination_Status
+    -> FROM covid_deaths d
+    -> LEFT JOIN covid_vaccines v
+    -> ON d.Country=v.Country;
++---------+--------+--------------------+
+| Country | Deaths | Vaccination_Status |
++---------+--------+--------------------+
+| India   |     20 | Completed          |
+| Japan   |      5 | NULL               |
+| USA     |     15 | Completed          |
++---------+--------+--------------------+
+3 rows in set (0.01 sec)
+
+mysql>

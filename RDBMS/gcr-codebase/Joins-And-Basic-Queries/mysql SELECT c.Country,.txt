@@ -1,0 +1,16 @@
+mysql> SELECT c.Country,
+    ->        cc.Confirmed_Cases
+    -> FROM covid_cases cc
+    -> INNER JOIN countries c
+    -> ON cc.Country=c.Country
+    -> WHERE cc.Date='2026-07-14'
+    -> ORDER BY cc.Confirmed_Cases DESC
+    -> LIMIT 1;
++---------+-----------------+
+| Country | Confirmed_Cases |
++---------+-----------------+
+| India   |            1000 |
++---------+-----------------+
+1 row in set (0.01 sec)
+
+mysql>

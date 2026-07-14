@@ -1,0 +1,15 @@
+mysql> SELECT c.Continent,
+    -> SUM(cc.Deaths) AS Total_Deaths
+    -> FROM covid_cases cc
+    -> INNER JOIN countries c
+    -> ON cc.Country=c.Country
+    -> GROUP BY c.Continent;
++---------------+--------------+
+| Continent     | Total_Deaths |
++---------------+--------------+
+| Asia          |           25 |
+| North America |           15 |
++---------------+--------------+
+2 rows in set (0.01 sec)
+
+mysql>

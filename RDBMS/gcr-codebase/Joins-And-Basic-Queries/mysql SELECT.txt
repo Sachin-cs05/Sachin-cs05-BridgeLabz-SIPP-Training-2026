@@ -1,0 +1,16 @@
+mysql> SELECT
+    -> c.Country,
+    -> ((cc.Confirmed_Cases/c.Population)*100)
+    -> AS Infection_Rate
+    -> FROM covid_cases cc
+    -> INNER JOIN countries c
+    -> ON cc.Country=c.Country
+    -> ORDER BY Infection_Rate DESC;
++---------+----------------+
+| Country | Infection_Rate |
++---------+----------------+
+| Japan   |         0.0002 |
+| USA     |         0.0002 |
+| India   |         0.0001 |
++---------+----------------+
+3 rows in set (0.00 sec)

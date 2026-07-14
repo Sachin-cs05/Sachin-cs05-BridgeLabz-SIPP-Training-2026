@@ -1,0 +1,13 @@
+mysql> SELECT Date,
+    -> AVG(Deaths) AS Avg_Deaths
+    -> FROM covid_cases
+    -> GROUP BY Date
+    -> ORDER BY Date;
++------------+------------+
+| Date       | Avg_Deaths |
++------------+------------+
+| 2026-07-14 |    13.3333 |
++------------+------------+
+1 row in set (0.01 sec)
+
+mysql>
