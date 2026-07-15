@@ -1,0 +1,17 @@
+mysql> SELECT c1.record_date, c1.confirmed_cases
+    -> FROM covid_cases c1
+    -> WHERE c1.state = 'Mumbai'
+    -> AND c1.confirmed_cases >= (
+    ->     SELECT MAX(c2.confirmed_cases)
+    ->     FROM covid_cases c2
+    ->     WHERE c2.state = c1.state
+    ->     AND c2.record_date <= c1.record_date
+    -> );
++-------------+-----------------+
+| record_date | confirmed_cases |
++-------------+-----------------+
+| 2021-01-01  |          500000 |
+| 2021-02-01  |          700000 |
+| 2021-04-01  |         1200000 |
++-------------+-----------------+
+3 rows in set (0.00 sec)

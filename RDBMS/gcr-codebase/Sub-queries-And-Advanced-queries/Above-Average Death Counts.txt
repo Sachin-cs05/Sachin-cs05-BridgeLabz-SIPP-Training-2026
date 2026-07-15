@@ -1,0 +1,20 @@
+mysql> SELECT country, SUM(deaths) AS total_deaths
+    -> FROM covid_deaths
+    -> GROUP BY country
+    -> HAVING SUM(deaths) > (
+    ->     SELECT AVG(total_deaths)
+    ->     FROM (
+    ->         SELECT SUM(deaths) AS total_deaths
+    ->         FROM covid_deaths
+    ->         GROUP BY country
+    ->     ) AS country_deaths
+    -> );
++---------+--------------+
+| country | total_deaths |
++---------+--------------+
+| USA     |       800000 |
+| Brazil  |       650000 |
++---------+--------------+
+2 rows in set (0.01 sec)
+
+mysql>

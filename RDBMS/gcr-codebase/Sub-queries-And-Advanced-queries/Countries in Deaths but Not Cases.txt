@@ -1,0 +1,15 @@
+mysql> SELECT DISTINCT country
+    -> FROM covid_deaths
+    -> WHERE country NOT IN (
+    ->     SELECT DISTINCT country
+    ->     FROM covid_cases
+    ->     WHERE country IS NOT NULL
+    -> );
++----------------+
+| country        |
++----------------+
+| UnknownCountry |
++----------------+
+1 row in set (0.00 sec)
+
+mysql>

@@ -1,0 +1,18 @@
+mysql> SELECT DISTINCT country
+    -> FROM covid_cases
+    -> WHERE country IN (
+    ->     SELECT country
+    ->     FROM covid_cases
+    ->     GROUP BY country
+    ->     HAVING MAX(confirmed_cases) > 1000000
+    -> );
++---------+
+| country |
++---------+
+| India   |
+| USA     |
+| Brazil  |
++---------+
+3 rows in set (0.00 sec)
+
+mysql>

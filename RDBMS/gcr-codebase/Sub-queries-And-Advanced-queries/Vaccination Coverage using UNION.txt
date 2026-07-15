@@ -1,0 +1,22 @@
+mysql> SELECT country, vaccinated AS population_count, 'Vaccinated' AS status
+    -> FROM vaccinations
+    ->
+    -> UNION
+    ->
+    -> SELECT country, population - vaccinated AS population_count, 'Unvaccinated' AS status
+    -> FROM vaccinations;
++---------+------------------+--------------+
+| country | population_count | status       |
++---------+------------------+--------------+
+| India   |       1000000000 | Vaccinated   |
+| USA     |        250000000 | Vaccinated   |
+| Brazil  |        170000000 | Vaccinated   |
+| Japan   |        100000000 | Vaccinated   |
+| India   |        400000000 | Unvaccinated |
+| USA     |         80000000 | Unvaccinated |
+| Brazil  |         45000000 | Unvaccinated |
+| Japan   |         25000000 | Unvaccinated |
++---------+------------------+--------------+
+8 rows in set (0.00 sec)
+
+mysql>
